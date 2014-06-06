@@ -1,0 +1,14 @@
+
+<div style="display: none">{{=response.toolbar()}} </div>
+
+<form action="{{=URL()}}">
+<input type="text" name="search_text">
+<input type="submit">
+</form>
+<div>
+	<ul>
+{{for messages in message:}}<li>{{=messages}}</li>{{pass}}
+</ul>
+	
+</div>
+<div>{{=BEAUTIFY(request.vars)}}</div>

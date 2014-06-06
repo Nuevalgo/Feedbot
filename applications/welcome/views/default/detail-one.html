@@ -1,0 +1,63 @@
+
+{{=response.toolbar()}}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Feed Bot - Analytics</title>
+<link href="{{=URL('static', 'css/design-two.css')}}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<header class="header">
+<h3 class=".header_title">FEED BOT - ANALYTICS</h3>
+</header>
+<section>
+<div>
+
+</div>
+	<div class="container clearfix">
+        <div>
+
+        <form action="{{=URL()}}">
+<label>Search for Twitter String : </label><input type="text" name="search_text">
+<input type="submit" value="Search">
+</form>
+</div>
+    	<div class="left-container">
+            
+        	<div class="box-one">
+                <div>From Twitter Feeds</div>
+            	  <ul class="list" style="list-style : none; color: white; ">
+{{for messages in message:}}<li>{{=messages}}</li>{{pass}}<br/>
+</ul>
+                      <ul class="list" style="list-style : none; color: white; ">
+{{for googles in google:}}<li>{{=googles}}</li>{{pass}}<br/>
+</ul>
+            </div>
+            <div class="box-one">
+            	<p>Tweet locations<br/><iframe width="570" height="150" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.com/maps?q=145 E 3rd St Marion, IN 46952&output=embed"></iframe>
+</p>
+            </div>
+        </div>
+        <div class="right-container">
+        	<div class="box-one">
+            	<p>Count: {{=lengthofdata}} 
+                    <br/>
+                    <ul style="list-style : none"> 
+                        {{ for word in words:}}
+                        <li>{{=word}}:</li>{{pass}}<br/>
+                    </ul>{{=count}}</p>
+            </div>
+            <div class="box-one">
+            	<p><img src="{{=URL('static', 'images/Graph1.jpg')}}"></p>
+            </div>
+            <div class="box-one">
+            	<p><img src="{{=URL('static', 'images/Graph2.jpg')}}"></p>
+            </div>
+        </div>
+    </div>
+</section>
+<footer></footer>
+</body>
+</html>

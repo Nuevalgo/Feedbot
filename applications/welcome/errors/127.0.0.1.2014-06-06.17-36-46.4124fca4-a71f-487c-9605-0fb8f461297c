@@ -1,0 +1,21 @@
+(dp1
+S'output'
+p2
+S"<class 'pattern.web.URLTimeout'> "
+p3
+sS'layer'
+p4
+S'/home/samuel/Desktop/web2py/applications/welcome/controllers/stream.py'
+p5
+sS'code'
+p6
+S'import sys; \nsys.path.append(\'/usr/local/lib/python2.7/dist-packages\')\nsys.path.append(\'/usr/lib/python2.7/dist-packages\')\nfrom pattern.web import Twitter\n\n\ndef index():\n\n    response.flash = T("Feedsdf s!")\n    response.flash2 = T(\'Twitter Feed Area\')\n\n    text = request.vars.search_text\n    \n    get_data = search(text)\n\n    count = 0\n\n    list_text = []\n   \n    words = text.split()\n\n    for word in words:\n            list_text.append(word)\n  \n\n\n\n    length = len(get_data)\n\n    response.view = \'default/detail-one.html\'\n    return dict(message=get_data, lengthofdata=length, words=list_text, count=count)\n\n\ndef search(text):\n\tlist = []\n        counter = 0\n\n\ttwitter = Twitter(language=\'en\') \n\tfor tweet in twitter.search(text, count=30, cached=False):\n            list.append(tweet.text)\n            if(text in tweet.text):\n                counter = counter + 1\n                \n\treturn list\n\ndef count():\n    counter = counter + 1\n\n\n# def parse(text):\n  \n#     s = parsetree(text) \n#     for sentence in s: \n#             for chunk in sentence.chunks:\n#                 for word in chunk.words:\n#                     s.append(word)\n  \n\n#     return s\n\n\nresponse._vars=response._caller(index)\n'
+p7
+sS'snapshot'
+p8
+(dp9
+sS'traceback'
+p10
+S'Traceback (most recent call last):\n  File "/home/samuel/Desktop/web2py/gluon/restricted.py", line 220, in restricted\n    exec ccode in environment\n  File "/home/samuel/Desktop/web2py/applications/welcome/controllers/stream.py", line 62, in <module>\n  File "/home/samuel/Desktop/web2py/gluon/globals.py", line 385, in <lambda>\n    self._caller = lambda f: f()\n  File "/home/samuel/Desktop/web2py/applications/welcome/controllers/stream.py", line 14, in index\n    get_data = search(text)\n  File "/home/samuel/Desktop/web2py/applications/welcome/controllers/stream.py", line 39, in search\n    for tweet in twitter.search(text, count=30, cached=False):\n  File "/usr/local/lib/python2.7/dist-packages/Pattern-2.6-py2.7.egg/pattern/web/__init__.py", line 1503, in search\n    data = url.download(cached=cached, **kwargs)\n  File "/usr/local/lib/python2.7/dist-packages/Pattern-2.6-py2.7.egg/pattern/web/__init__.py", line 437, in download\n    data = self.open(timeout, proxy, user_agent, referrer, authentication).read()\n  File "/usr/local/lib/python2.7/dist-packages/Pattern-2.6-py2.7.egg/pattern/web/__init__.py", line 409, in open\n    raise URLTimeout(src=e, url=url)\nURLTimeout\n'
+p11
+s.
